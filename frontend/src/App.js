@@ -37,15 +37,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-import ExamsList from './pages/ExamsList';
-import CreateExam from './pages/CreateExam';
-import UploadAnswerSheet from './pages/UploadAnswerSheet';
-import EvaluateAnswers from './pages/EvaluateAnswers';
-import Analytics from './pages/Analytics';
-import StudentResults from './pages/StudentResults';
+// import ExamsList from './pages/ExamsList';
+// import CreateExam from './pages/CreateExam';
+// import UploadAnswerSheet from './pages/UploadAnswerSheet';
+// import EvaluateAnswers from './pages/EvaluateAnswers';
+// import Analytics from './pages/Analytics';
+// import StudentResults from './pages/StudentResults';
 
 // Import components
-import PrivateRoute from './components/PrivateRoute';
+// import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 
 // Create theme
@@ -69,11 +69,12 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={
+           <Route path="/dashboard" element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           } />
+          {/*
           <Route path="/exams" element={
             <PrivateRoute>
               <ExamsList />
@@ -103,7 +104,7 @@ function App() {
             <PrivateRoute>
               <StudentResults />
             </PrivateRoute>
-          } />
+          } /> */}
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
