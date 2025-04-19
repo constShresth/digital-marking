@@ -6,23 +6,22 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
-    // Check if user is logged in from localStorage
+    // Simulate checking localStorage for logged-in user
     const user = localStorage.getItem('user');
     if (user) {
       setCurrentUser(JSON.parse(user));
     }
     setLoading(false);
   }, []);
-  
+
   const login = async (username, password) => {
     try {
-      // This would be an API call in production
       if (username === 'teacher' && password === 'password') {
-        const user = { 
-          id: 1, 
-          username: 'teacher', 
+        const user = {
+          id: 1,
+          username: 'teacher',
           role: 'teacher',
           name: 'John Doe'
         };
@@ -30,9 +29,9 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('user', JSON.stringify(user));
         return { success: true };
       } else if (username === 'admin' && password === 'password') {
-        const user = { 
-          id: 2, 
-          username: 'admin', 
+        const user = {
+          id: 2,
+          username: 'admin',
           role: 'admin',
           name: 'Admin User'
         };
@@ -40,25 +39,24 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('user', JSON.stringify(user));
         return { success: true };
       } else {
-        return { 
-          success: false, 
-          message: 'Invalid username or password' 
+        return {
+          success: false,
+          message: 'Invalid username or password'
         };
       }
     } catch (error) {
-      return { 
-        success: false, 
-        message: error.message || 'Login failed' 
+      return {
+        success: false,
+        message: error.message || 'Login failed'
       };
     }
   };
-  
+
   const register = async (userData) => {
     try {
-      // This would be an API call in production
-      const user = { 
-        id: 3, 
-        username: userData.username, 
+      const user = {
+        id: 3,
+        username: userData.username,
         role: userData.role || 'teacher',
         name: userData.name
       };
@@ -66,18 +64,18 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(user));
       return { success: true };
     } catch (error) {
-      return { 
-        success: false, 
-        message: error.message || 'Registration failed' 
+      return {
+        success: false,
+        message: error.message || 'Registration failed'
       };
     }
   };
-  
+
   const logout = () => {
     setCurrentUser(null);
     localStorage.removeItem('user');
   };
-  
+
   const value = {
     currentUser,
     login,
@@ -85,10 +83,15 @@ export const AuthProvider = ({ children }) => {
     logout,
     isAuthenticated: !!currentUser
   };
-  
+
+  // ✅ Return null or a loading UI while checking localStorage
+  if (loading) {
+    return null; // or return <div>Loading...</div> if you prefer
+  }
+
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };
