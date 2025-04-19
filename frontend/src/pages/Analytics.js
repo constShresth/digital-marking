@@ -28,11 +28,15 @@ import {
     PieChart,
     Pie,
     Cell,
-    ResponsiveContainer,
+    ResponsiveContainer
+  } from 'recharts';
+  
+  import {
     School,
     Search,
     Download
-} from '@mui/icons-material';
+  } from '@mui/icons-material';
+  
 import { useNavigate } from 'react-router-dom';
 
 const Analytics = () => {

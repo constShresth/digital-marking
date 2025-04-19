@@ -37,15 +37,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-// import ExamsList from './pages/ExamsList';
-// import CreateExam from './pages/CreateExam';
-// import UploadAnswerSheet from './pages/UploadAnswerSheet';
-// import EvaluateAnswers from './pages/EvaluateAnswers';
-// import Analytics from './pages/Analytics';
-// import StudentResults from './pages/StudentResults';
+import ExamsList from './pages/ExamsList';
+import CreateExam from './pages/CreateExam';
+import UploadAnswerSheet from './pages/UploadAnswerSheet';
+import EvaluateAnswers from './pages/EvaluateAnswers';
+import Analytics from './pages/Analytics';
+import StudentResults from './pages/StudentResults';
 
 // Import components
-// import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 
 // Create theme
@@ -74,33 +74,37 @@ function App() {
               <Dashboard />
             </PrivateRoute>
           } />
-          {/*
-          <Route path="/exams" element={
+          
+          {/* <Route path="/exams" element={
             <PrivateRoute>
               <ExamsList />
             </PrivateRoute>
-          } />
-          <Route path="/exams/create" element={
+          } /> */}
+          {/* <Route path="/exams/create" element={
             <PrivateRoute>
               <CreateExam />
             </PrivateRoute>
-          } />
-          <Route path="/upload/:examId" element={
+          } /> */}
+
+          {/* <Route path="/upload/:examId" element={
             <PrivateRoute>
               <UploadAnswerSheet />
             </PrivateRoute>
-          } />
-          <Route path="/evaluate/:answerSheetId" element={
+          } /> */}
+
+          {/* <Route path="/evaluate/:answerSheetId" element={
             <PrivateRoute>
               <EvaluateAnswers />
             </PrivateRoute>
-          } />
-          <Route path="/analytics/:examId" element={
+          } /> */}
+
+          {/* <Route path="/analytics/:examId" element={
             <PrivateRoute>
               <Analytics />
             </PrivateRoute>
-          } />
-          <Route path="/student/:studentId" element={
+          } /> */}
+
+          {/* <Route path="/student/:studentId" element={
             <PrivateRoute>
               <StudentResults />
             </PrivateRoute>
